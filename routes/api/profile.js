@@ -27,7 +27,7 @@ router.get("/me", auth, async (req, res) => {
 });
 
 //@route    Post api/profile
-//@description  Create or updat profile
+//@description  Create or update profile
 //@access   Private
 
 router.post(
@@ -218,7 +218,7 @@ router.put(
   }
 );
 
-//@route    Add api/profile/experience/:exp_id
+//@route    Delete api/profile/experience/:exp_id
 //@description  Delete an experience from profile
 //@access   Private
 
@@ -299,7 +299,7 @@ router.put(
   }
 );
 
-//@route    Add api/profile/education/:edu_id
+//@route    Delete api/profile/education/:edu_id
 //@description  Delete an education from profile
 //@access   Private
 
@@ -311,7 +311,7 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
     //Get the remove index
     const removeIndex = profile.education
       .map((item) => item.id)
-      .indexOf(req.params.exp_id);
+      .indexOf(req.params.edu_id);
     //remove the selected index from education field
     profile.education.splice(removeIndex, 1);
     //Save the updated profile
